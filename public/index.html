@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 Arena de Apostas - Copa 2026</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+
+    <div class="main-layout">
+        
+        <!-- COLUNA DA ESQUERDA: Formulário de Registro (Mais compacto) -->
+        <aside class="bet-sidebar">
+            <header class="sidebar-header">
+                <h1>🏆 Copa 2026</h1>
+                <p>Faça a sua aposta rápida</p>
+            </header>
+
+            <form id="bet-form">
+                <div class="input-group">
+                    <label for="apostador">Nome do Apostador</label>
+                    <input type="text" id="apostador" placeholder="Ex: João Silva" required>
+                </div>
+
+                <div class="teams-selection">
+                    <div class="select-box">
+                        <label for="pais1">1º País</label>
+                        <select id="pais1" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Brasil">🇧🇷 Brasil</option>
+                            <option value="França">🇫🇷 França</option>
+                            <option value="Argentina">🇦🇷 Argentina</option>
+                            <option value="Alemanha">🇩🇪 Alemanha</option>
+                            <option value="Espanha">🇪🇸 Espanha</option>
+                        </select>
+                    </div>
+
+                    <div class="vs-label">X</div>
+
+                    <div class="select-box">
+                        <label for="pais2">2º País</label>
+                        <select id="pais2" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Brasil">🇧🇷 Brasil</option>
+                            <option value="França">🇫🇷 França</option>
+                            <option value="Argentina">🇦🇷 Argentina</option>
+                            <option value="Alemanha">🇩🇪 Alemanha</option>
+                            <option value="Espanha">🇪🇸 Espanha</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="score-section">
+                    <label>Palpite do Placar</label>
+                    <div class="score-inputs">
+                        <input type="number" id="placar1" min="0" max="99" placeholder="0" required>
+                        <span class="vs-dash">-</span>
+                        <input type="number" id="placar2" min="0" max="99" placeholder="0" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="valor">Valor (R$)</label>
+                    <div class="money-input-wrapper">
+                        <span class="currency-symbol">R$</span>
+                        <input type="number" id="valor" min="1" step="0.50" placeholder="10,00" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">Registrar Aposta</button>
+            </form>
+        </aside>
+
+        <!-- COLUNA DA DIREITA: Painel de Apostas Feitas -->
+        <main class="bets-dashboard">
+            <h2>📊 Apostas Registradas</h2>
+            
+            <!-- Esse container vai começar vazio e o JS vai jogando as apostas aqui dentro -->
+            <div id="bets-list" class="bets-grid">
+                
+                <!-- EXEMPLO DE CARTÃO DE APOSTA (VAMOS DEIXAR 1 PARA VC VER O DESIGN) -->
+                <div class="bet-ticket animate-pop">
+                    <div class="ticket-header">
+                        <span class="ticket-user">👤 João Silva</span>
+                        <span class="ticket-value">R$ 50,00</span>
+                    </div>
+                    <div class="ticket-body">
+                        <div class="ticket-team">
+                            <span>Brasil</span>
+                            <span class="ticket-score">3</span>
+                        </div>
+                        <span class="ticket-vs">X</span>
+                        <div class="ticket-team text-right">
+                            <span class="ticket-score">1</span>
+                            <span>França</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIM DO EXEMPLO -->
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Script para fazer a lógica acontecer -->
+    <script src="script.js"></script>
+</body>
+</html>
