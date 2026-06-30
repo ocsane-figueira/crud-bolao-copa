@@ -102,12 +102,16 @@ input:focus, select:focus {
 }
 
 /* Placar Compacto */
-.score-section {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 12px;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 15px;
+.score-inputs input::-webkit-outer-spin-button,
+.score-inputs input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.score-inputs input[type=number] {
+    -moz-appearance: textfield;
+
 }
 
 .score-inputs {

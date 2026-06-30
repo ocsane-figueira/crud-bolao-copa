@@ -10,7 +10,7 @@
 
     <div class="main-layout">
         
-        <!-- COLUNA DA ESQUERDA: Formulário de Registro (Mais compacto) -->
+        <!-- COLUNA DA ESQUERDA: Formulário de Registro -->
         <aside class="bet-sidebar">
             <header class="sidebar-header">
                 <h1>🏆 Copa 2026</h1>
@@ -18,39 +18,143 @@
             </header>
 
             <form id="bet-form">
+                <!-- Nome do Apostador -->
                 <div class="input-group">
                     <label for="apostador">Nome do Apostador</label>
                     <input type="text" id="apostador" placeholder="Ex: João Silva" required>
                 </div>
 
+                <!-- Seleção de Países (Lado a Lado) -->
                 <div class="teams-selection">
+                    
+                    <!-- 1º PAÍS -->
                     <div class="select-box">
                         <label for="pais1">1º País</label>
                         <select id="pais1" required>
                             <option value="" disabled selected>Selecione...</option>
-                            <option value="Brasil">🇧🇷 Brasil</option>
-                            <option value="França">🇫🇷 França</option>
-                            <option value="Argentina">🇦🇷 Argentina</option>
-                            <option value="Alemanha">🇩🇪 Alemanha</option>
-                            <option value="Espanha">🇪🇸 Espanha</option>
+                            <optgroup label="América do Sul (CONMEBOL)">
+                                <option value="🇦🇷 Argentina">🇦🇷 Argentina</option>
+                                <option value="🇧🇷 Brasil">🇧🇷 Brasil</option>
+                                <option value="🇨🇱 Chile">🇨🇱 Chile</option>
+                                <option value="🇨🇴 Colômbia">🇨🇴 Colômbia</option>
+                                <option value="🇪🇨 Equador">🇪🇨 Equador</option>
+                                <option value="🇵🇾 Paraguai">🇵🇾 Paraguai</option>
+                                <option value="🇵🇪 Peru">🇵🇪 Peru</option>
+                                <option value="🇺🇾 Uruguai">🇺🇾 Uruguai</option>
+                                <option value="🇻🇪 Venezuela">🇻🇪 Venezuela</option>
+                            </optgroup>
+                            <optgroup label="Europa (UEFA)">
+                                <option value="🇩🇪 Alemanha">🇩🇪 Alemanha</option>
+                                <option value="🇦🇹 Áustria">🇦🇹 Áustria</option>
+                                <option value="🇧🇪 Bélgica">🇧🇪 Bélgica</option>
+                                <option value="🇭🇷 Croácia">🇭🇷 Croácia</option>
+                                <option value="🇩🇰 Dinamarca">🇩🇰 Dinamarca</option>
+                                <option value="🇪🇸 Espanha">🇪🇸 Espanha</option>
+                                <option value="🇫🇷 França">🇫🇷 França</option>
+                                <option value="🇬🇧 Inglaterra">🇬🇧 Inglaterra</option>
+                                <option value="🇮🇹 Itália">🇮🇹 Itália</option>
+                                <option value="🇳🇱 Holanda">🇳🇱 Holanda</option>
+                                <option value="🇵🇹 Portugal">🇵🇹 Portugal</option>
+                                <option value="🇨🇭 Suíça">🇨🇭 Suíça</option>
+                                <option value="🇺🇦 Ucrânia">🇺🇦 Ucrânia</option>
+                            </optgroup>
+                            <optgroup label="América do Norte, Central e Caribe (CONCACAF)">
+                                <option value="🇨🇦 Canadá">🇨🇦 Canadá</option>
+                                <option value="🇺🇸 Estados Unidos">🇺🇸 Estados Unidos</option>
+                                <option value="🇲🇽 México">🇲🇽 México</option>
+                                <option value="🇨🇷 Costa Rica">🇨🇷 Costa Rica</option>
+                                <option value="🇯🇲 Jamaica">🇯🇲 Jamaica</option>
+                                <option value="🇵🇦 Panamá">🇵🇦 Panamá</option>
+                            </optgroup>
+                            <optgroup label="África (CAF)">
+                                <option value="🇩🇿 Argélia">🇩🇿 Argélia</option>
+                                <option value="🇨🇲 Camarões">🇨🇲 Camarões</option>
+                                <option value="🇨🇮 Costa do Marfim">🇨🇮 Costa do Marfim</option>
+                                <option value="🇪🇬 Egito">🇪🇬 Egito</option>
+                                <option value="🇬🇭 Gana">🇬hana</option>
+                                <option value="🇲🇦 Marrocos">🇲🇦 Marrocos</option>
+                                <option value="🇳🇬 Nigéria">🇳🇬 Nigéria</option>
+                                <option value="🇸🇳 Senegal">🇸🇳 Senegal</option>
+                                <option value="🇹🇳 Tunísia">🇹🇳 Tunísia</option>
+                            </optgroup>
+                            <optgroup label="Ásia (AFC) e Oceania (OFC)">
+                                <option value="🇸🇦 Arábia Saudita">🇸🇦 Arábia Saudita</option>
+                                <option value="🇦🇺 Austrália">🇦🇺 Austrália</option>
+                                <option value="🇰🇷 Coreia do Sul">🇰🇷 Coreia do Sul</option>
+                                <option value="🇮🇷 Irã">🇮🇷 Irã</option>
+                                <option value="🇯🇵 Japão">🇯🇵 Japão</option>
+                                <option value="🇶🇦 Catar">🇶🇦 Catar</option>
+                                <option value="🇳🇿 Nova Zelândia">🇳🇿 Nova Zelândia</option>
+                            </optgroup>
                         </select>
                     </div>
 
                     <div class="vs-label">X</div>
 
+                    <!-- 2º PAÍS -->
                     <div class="select-box">
                         <label for="pais2">2º País</label>
                         <select id="pais2" required>
                             <option value="" disabled selected>Selecione...</option>
-                            <option value="Brasil">🇧🇷 Brasil</option>
-                            <option value="França">🇫🇷 França</option>
-                            <option value="Argentina">🇦🇷 Argentina</option>
-                            <option value="Alemanha">🇩🇪 Alemanha</option>
-                            <option value="Espanha">🇪🇸 Espanha</option>
+                            <optgroup label="América do Sul (CONMEBOL)">
+                                <option value="🇦🇷 Argentina">🇦🇷 Argentina</option>
+                                <option value="🇧🇷 Brasil">🇧🇷 Brasil</option>
+                                <option value="🇨🇱 Chile">🇨🇱 Chile</option>
+                                <option value="🇨🇴 Colômbia">🇨🇴 Colômbia</option>
+                                <option value="🇪🇨 Equador">🇪🇨 Equador</option>
+                                <option value="🇵🇾 Paraguai">🇵🇾 Paraguai</option>
+                                <option value="🇵🇪 Peru">🇵🇪 Peru</option>
+                                <option value="🇺🇾 Uruguai">🇺🇾 Uruguai</option>
+                                <option value="🇻🇪 Venezuela">🇻🇪 Venezuela</option>
+                            </optgroup>
+                            <optgroup label="Europa (UEFA)">
+                                <option value="🇩🇪 Alemanha">🇩🇪 Alemanha</option>
+                                <option value="🇦🇹 Áustria">🇦🇹 Áustria</option>
+                                <option value="🇧🇪 Bélgica">🇧🇪 Bélgica</option>
+                                <option value="🇭🇷 Croácia">🇭🇷 Croácia</option>
+                                <option value="🇩🇰 Dinamarca">🇩🇰 Dinamarca</option>
+                                <option value="🇪🇸 Espanha">🇪🇸 Espanha</option>
+                                <option value="🇫🇷 França">🇫🇷 França</option>
+                                <option value="🇬🇧 Inglaterra">🇬🇧 Inglaterra</option>
+                                <option value="🇮🇹 Itália">🇮🇹 Itália</option>
+                                <option value="🇳🇱 Holanda">🇳🇱 Holanda</option>
+                                <option value="🇵🇹 Portugal">🇵🇹 Portugal</option>
+                                <option value="🇨🇭 Suíça">🇨🇭 Suíça</option>
+                                <option value="🇺🇦 Ucrânia">🇺🇦 Ucrânia</option>
+                            </optgroup>
+                            <optgroup label="América do Norte, Central e Caribe (CONCACAF)">
+                                <option value="🇨🇦 Canadá">🇨🇦 Canadá</option>
+                                <option value="🇺🇸 Estados Unidos">🇺🇸 Estados Unidos</option>
+                                <option value="🇲🇽 México">🇲🇽 México</option>
+                                <option value="🇨🇷 Costa Rica">🇨🇷 Costa Rica</option>
+                                <option value="🇯🇲 Jamaica">🇯🇲 Jamaica</option>
+                                <option value="🇵🇦 Panamá">🇵🇦 Panamá</option>
+                            </optgroup>
+                            <optgroup label="África (CAF)">
+                                <option value="🇩🇿 Argélia">🇩🇿 Argélia</option>
+                                <option value="🇨🇲 Camarões">🇨🇲 Camarões</option>
+                                <option value="🇨🇮 Costa do Marfim">🇨🇮 Costa do Marfim</option>
+                                <option value="🇪🇬 Egito">🇪🇬 Egito</option>
+                                <option value="🇬🇭 Gana">🇬hana</option>
+                                <option value="🇲🇦 Marrocos">🇲🇦 Marrocos</option>
+                                <option value="🇳🇬 Nigéria">🇳🇬 Nigéria</option>
+                                <option value="🇸🇳 Senegal">🇸🇳 Senegal</option>
+                                <option value="🇹🇳 Tunísia">🇹🇳 Tunísia</option>
+                            </optgroup>
+                            <optgroup label="Ásia (AFC) e Oceania (OFC)">
+                                <option value="🇸🇦 Arábia Saudita">🇸🇦 Arábia Saudita</option>
+                                <option value="🇦🇺 Austrália">🇦🇺 Austrália</option>
+                                <option value="🇰🇷 Coreia do Sul">🇰🇷 Coreia do Sul</option>
+                                <option value="🇮🇷 Irã">🇮🇷 Irã</option>
+                                <option value="🇯🇵 Japão">🇯🇵 Japão</option>
+                                <option value="🇶🇦 Catar">🇶🇦 Catar</option>
+                                <option value="🇳🇿 Nova Zelândia">🇳🇿 Nova Zelândia</option>
+                            </optgroup>
                         </select>
                     </div>
                 </div>
 
+                <!-- Placar do Palpite -->
                 <div class="score-section">
                     <label>Palpite do Placar</label>
                     <div class="score-inputs">
@@ -60,6 +164,7 @@
                     </div>
                 </div>
 
+                <!-- Valor da Aposta -->
                 <div class="input-group">
                     <label for="valor">Valor (R$)</label>
                     <div class="money-input-wrapper">
@@ -68,43 +173,30 @@
                     </div>
                 </div>
 
+                <!-- Botão de Envio -->
                 <button type="submit" class="btn-primary">Registrar Aposta</button>
             </form>
         </aside>
+        
 
         <!-- COLUNA DA DIREITA: Painel de Apostas Feitas -->
         <main class="bets-dashboard">
             <h2>📊 Apostas Registradas</h2>
-            
-            <!-- Esse container vai começar vazio e o JS vai jogando as apostas aqui dentro -->
             <div id="bets-list" class="bets-grid">
-                
-                <!-- EXEMPLO DE CARTÃO DE APOSTA (VAMOS DEIXAR 1 PARA VC VER O DESIGN) -->
-                <div class="bet-ticket animate-pop">
-                    <div class="ticket-header">
-                        <span class="ticket-user">👤 João Silva</span>
-                        <span class="ticket-value">R$ 50,00</span>
-                    </div>
-                    <div class="ticket-body">
-                        <div class="ticket-team">
-                            <span>Brasil</span>
-                            <span class="ticket-score">3</span>
-                        </div>
-                        <span class="ticket-vs">X</span>
-                        <div class="ticket-team text-right">
-                            <span class="ticket-score">1</span>
-                            <span>França</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- FIM DO EXEMPLO -->
-
+                <!-- Os cartões de apostas (bilhetes) vão aparecer aqui via JS -->
             </div>
+            <div id="area-apostas">
+                <!-- NOVO: Caixa com o Total Acumulado -->
+                <div class="total-box">
+                    <span>Total em Apostas:</span>
+                    <strong id="total-acumulado">R$ 0,00</strong>
+                </div>
+            </form>
+  
         </main>
 
     </div>
 
-    <!-- Script para fazer a lógica acontecer -->
     <script src="script.js"></script>
 </body>
 </html>
