@@ -11,6 +11,7 @@ async function consultar() {
             <div class="bet-ticket">
 
                 <div class="ticket-header">
+                    <span>ticket ${bolao[i].id}</span>
                     <span>${bolao[i].apostador}</span>
                     <span class="ticket-value">R$ ${Number(bolao[i].valor).toFixed(2)}</span>
                 </div>
@@ -28,7 +29,6 @@ async function consultar() {
                         <span class="ticket-score">${bolao[i].placar2}</span>
                         ${bolao[i].pais2}
                     </div>
-
                 </div>
 
             </div>

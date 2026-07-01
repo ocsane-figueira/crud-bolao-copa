@@ -179,24 +179,81 @@
         </aside>
         
 
-        <!-- COLUNA DA DIREITA: Painel de Apostas Feitas -->
-        <main class="bets-dashboard">
-            <h2>📊 Apostas Registradas</h2>
-            <div id="bets-list" class="bets-grid">
-                <!-- Os cartões de apostas (bilhetes) vão aparecer aqui via JS -->
-            </div>
-            <div id="area-apostas">
-                <!-- NOVO: Caixa com o Total Acumulado -->
-                <div class="total-box">
-                    <span>Total em Apostas:</span>
-                    <strong id="total-acumulado">R$ 0,00</strong>
-                </div>
-            </form>
-  
-        </main>
+<!-- COLUNA DA DIREITA: Painel de Apostas Feitas -->
+<main class="bets-dashboard">
+    <h2>📊 Apostas Registradas</h2>
+
+    <div id="bets-list" class="bets-grid">
+        <!-- Os cartões de apostas (bilhetes) vão aparecer aqui via JS -->
+    </div>
+
+    <div id="area-apostas">
+
+
+        <button class="btn-delete-ticket" onclick="abrirPopupExcluir()">
+            🗑 Excluir Ticket
+        </button>
+
+    </div>
+</main>
+
+<!-- POPUP -->
+<div id="popupExcluir" class="popup">
+    <div class="popup-content">
+        <h2>Excluir Ticket</h2>
+
+        <label>ID do Ticket</label>
+        <input
+            type="number"
+            id="idExcluir"
+            placeholder="Digite o ID do Ticket"
+        >
+
+        <div class="popup-buttons">
+            <button onclick="excluirTicket()">Excluir</button>
+            <button onclick="fecharPopupExcluir()">Cancelar</button>
+        </div>
+    </div>
+</div>
 
     </div>
 
     <script src="./js/script.js"></script>
+    <script>
+        function abrirPopupExcluir() {
+    document.getElementById("popupExcluir").style.display = "flex";
+    document.getElementById("idExcluir").value = "";
+}
+
+function fecharPopupExcluir() {
+    document.getElementById("popupExcluir").style.display = "none";
+}
+
+async function excluirTicket() {
+    const id = document.getElementById("idExcluir").value;
+
+    if (!id) {
+        alert("Informe o ID do Ticket.");
+        return;
+    }
+
+    if (!confirm(`Deseja realmente excluir o Ticket ${id}?`)) {
+        return;
+    }
+
+    const resposta = await fetch(`/bolao/${id}`, {
+        method: "DELETE"
+    });
+
+    const dados = await resposta.json();
+
+    alert(dados.mensagem);
+
+    fecharPopupExcluir();
+
+    // Atualiza a lista de apostas
+    consultar();
+}
+    </script>
 </body>
 </html>
