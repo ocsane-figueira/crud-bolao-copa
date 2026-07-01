@@ -85,4 +85,6 @@ app.delete("/bolao/:id", (req, res) => {
     });
 });
 
+app.use(express.static(__dirname));
+
 app.listen(PORT, () => {});

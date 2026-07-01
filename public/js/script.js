@@ -1,20 +1,38 @@
 async function consultar() {
-    const resposta = await fetch ("/bolao");
+    const resposta = await fetch("/bolao");
     const bolao = await resposta.json();
 
-    for( let i = 0; i < bolao.length; i++) {
-        let card =
-        `
-        <tr>
-            <td>${bolao[i].id}</td>
-            <td>${bolao[i].apostador}</td>
-            <td>${bolao[i].pais1}</td>
-            <td>${bolao[i].pais2}</td>
-            <td>${bolao[i].placar1}<td>
-            <td>${bolao[i].placar2}<td>
-            <td>${bolao[i].valor}<td>
-        </tr>
-        `
+    const lista = document.getElementById("bets-list");
+    lista.innerHTML = "";
+
+    for (let i = 0; i < bolao.length; i++) {
+
+        lista.innerHTML += `
+            <div class="bet-ticket">
+
+                <div class="ticket-header">
+                    <span>${bolao[i].apostador}</span>
+                    <span class="ticket-value">R$ ${Number(bolao[i].valor).toFixed(2)}</span>
+                </div>
+
+                <div class="ticket-body">
+
+                    <div class="ticket-team">
+                        ${bolao[i].pais1}
+                        <span class="ticket-score">${bolao[i].placar1}</span>
+                    </div>
+
+                    <div class="ticket-vs">X</div>
+
+                    <div class="ticket-team text-right">
+                        <span class="ticket-score">${bolao[i].placar2}</span>
+                        ${bolao[i].pais2}
+                    </div>
+
+                </div>
+
+            </div>
+        `;
     }
 }
 
