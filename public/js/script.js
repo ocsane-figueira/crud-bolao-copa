@@ -1,3 +1,6 @@
+const betsList = document.getElementById("bets-list");
+const totalAcumulado = document.getElementById("total-acumulado");
+
 async function consultar() {
     const resposta = await fetch("/bolao");
     const bolao = await resposta.json();
@@ -37,39 +40,45 @@ async function consultar() {
 }
 
 async function criarAposta() {
-    let apostador = document.getElementById("apostador").value;
-    let pais1 = document.getElementById("pais1").value;
-    let pais2 = document.getElementById("pais2").value;
-    let placar1 = document.getElementById("placar1").value;
-    let placar2 = document.getElementById("placar2").value;
-    let valor = document.getElementById("valor").value;
+
+    const apostador = document.getElementById("apostador").value;
+    const pais1 = document.getElementById("pais1").value;
+    const pais2 = document.getElementById("pais2").value;
+    const placar1 = document.getElementById("placar1").value;
+    const placar2 = document.getElementById("placar2").value;
+    const valor = document.getElementById("valor").value;
 
     await fetch("/bolao", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    apostador: apostador,
-                    pais1: pais1,
-                    pais2: pais2,
-                    placar1: placar1,
-                    placar2: placar2,
-                    valor: valor
-                })
-            });
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            apostador: apostador,
+            pais1: pais1,
+            pais2: pais2,
+            placar1: placar1,
+            placar2: placar2,
+            valor: valor
+        })
+    });
+
+    document.getElementById("bet-form").reset();
+
     consultar();
 }
 
-async function deletar(id){
-    if(!confirm("Deseja excluir?")){
+async function deletar(id) {
+
+    if (!confirm("Deseja excluir esta aposta?")) {
         return;
     }
+
     await fetch(`/bolao/${id}`, {
         method: "DELETE"
     });
+
+    consultar();
 }
-
-
 
 consultar();
