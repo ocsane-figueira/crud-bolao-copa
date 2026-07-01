@@ -35,7 +35,7 @@ app.post("/bolao", (req, res) => {
         pais1: req.body.pais1,
         pais2: req.body.pais2, 
         placar1: req.body.placar1,
-        placar2: req.doby.placar2,
+        placar2: req.body.placar2,
         valor: req.body.valor
     }
 
